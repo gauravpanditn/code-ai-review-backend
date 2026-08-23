@@ -1,5 +1,5 @@
 
-import type { Request, Response } from "express";
+import type {  Response } from "express";
 import { getContributionStats, getDashboardStats, getMonthlyActivity } from "../service/dashboard.service.js";
 import type { AuthRequest } from "../types/auth.types.js";
 

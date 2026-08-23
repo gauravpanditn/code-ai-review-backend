@@ -38,7 +38,7 @@ if(event === "pull_request"){
       message: "Event Processed",
     });
 
-
+    
 
   } catch (error) {
     console.error(error);
