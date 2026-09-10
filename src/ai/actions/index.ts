@@ -70,3 +70,18 @@ if(repository){
    }
 
 }
+
+export async function solveIssue(
+    owner: string,
+    repo: string,
+    issueNumber: number
+) {
+    return await inngest.send({
+        name: "issue.solve-requested",
+        data: {
+            owner,
+            repo,
+            issueNumber,
+        },
+    });
+}

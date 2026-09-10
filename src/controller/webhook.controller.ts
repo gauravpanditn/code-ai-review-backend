@@ -1,5 +1,6 @@
 import type{ Request, Response } from "express";
-import { reviewPullRequest } from "../ai/actions/index.js";
+import { reviewPullRequest, solveIssue } from "../ai/actions/index.js";
+
 
 export const githubWebhookController = async (
   req: Request,
@@ -29,9 +30,24 @@ if(event === "pull_request"){
         .then(()=>console.log(`Review completed for ${repo} #${prNumber}`))
         .catch((error)=>console.log(`Review failed for ${repo} #${prNumber}`))
     }
+ 
+    
 
 }
-    
+    if (event === "issues") {
+      const action = req.body.action;
+
+      if (action === "opened") {
+        const repo = req.body.repository.full_name;
+        const issueNumber = req.body.issue.number;
+
+        const [owner, repoName] = repo.split("/");
+
+        await solveIssue(owner, repoName, issueNumber)
+        .then(()=>console.log(""))
+        .catch((error)=>console.log(""))
+      }
+    }
 
     return res.status(200).json({
       success: true,
