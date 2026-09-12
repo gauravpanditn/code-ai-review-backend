@@ -64,13 +64,13 @@ export async function indexCodebase(
                 records: batch,
             });
 
-<<<<<<< Updated upstream
+
             
-=======
+
             console.log(
                 `⬆️ Upserted ${batch.length} vectors`
             );
->>>>>>> Stashed changes
+
         }
     }
 
@@ -118,15 +118,13 @@ export async function retrieveContext(
         }))
         .filter((item) => item.content);
 
-<<<<<<< Updated upstream
-    
-=======
+
     console.log(
         "📚 Retrieved context chunks:",
         context.length
     );
 
->>>>>>> Stashed changes
+
     return context;
 }
 
