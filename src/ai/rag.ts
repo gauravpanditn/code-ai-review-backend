@@ -64,9 +64,7 @@ export async function indexCodebase(
                 records: batch,
             });
 
-            console.log(
-                `⬆️ Upserted ${batch.length} vectors`
-            );
+            
         }
     }
 
@@ -114,11 +112,7 @@ export async function retrieveContext(
         }))
         .filter((item) => item.content);
 
-    console.log(
-        "📚 Retrieved context chunks:",
-        context.length
-    );
-
+    
     return context;
 }
 
