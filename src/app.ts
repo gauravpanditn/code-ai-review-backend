@@ -9,7 +9,7 @@ import userRoutes from "./routes/user.routes.js";
 import webhookRoutes from "./routes/webhook.routes.js";
 import reviewRoutes from "./routes/review.routes.js";
 import { inngestHandler } from "./inngest/index.js";
-
+import chatRoutes from "./routes/chat.routes.js"
 const app = express();
 
 app.set("trust proxy", 1);
@@ -41,7 +41,10 @@ app.use("/api/user", userRoutes);
 
 app.use("/api/review",reviewRoutes)
 
+
 app.use("/api/inngest", inngestHandler);
+
+app.use("/api/chat",chatRoutes);
 
 app.get("/api/test", (req, res) => {
   res.json({

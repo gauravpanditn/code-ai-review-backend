@@ -13,6 +13,7 @@ export const getGithubToken = async (
       providerId: "github",
     },
   });
+  
 
   if (!account?.accessToken) {
     throw new Error(

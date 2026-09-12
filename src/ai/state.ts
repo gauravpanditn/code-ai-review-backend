@@ -4,7 +4,10 @@ export const ReviewStateAnnotation = Annotation.Root({
   title: Annotation<string>(),
   description: Annotation<string>(),
   diff: Annotation<string>(),
-  context: Annotation<string[]>(),
+  context: Annotation<{
+    path: string;
+    content: string;
+  }[]>(),
   walkthrough: Annotation<string>(),
   summary: Annotation<string>(),
   strengths: Annotation<string>(),
